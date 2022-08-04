@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html style="max-width: 1800px; min-width:1800px;">
+<head>
+    <title> VẼ HÌNH </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <style>
+        .image{
+            width: 30%;
+            height:30%;
+            position: relative;
+            z-index: 1;
+        }
+        .que{
+            height: 13px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .option-input {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -ms-appearance: none;
+            -o-appearance: none;
+            appearance: none;
+            position: relative;
+            top: 3px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            transition: all 0.15s ease-out 0s;
+            background: #cbd1d8;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            display: inline-block;
+            margin-right: 0.5rem;
+            outline: none;
+            position: relative;
+            z-index: 1000;
+        }
+        .option-input:hover {
+        background: #9faab7;
+        }
+        .option-input:checked {
+        background: #40e0d0;
+        }
+        .option-input.radio {
+        border-radius: 50%;
+        }
+        .option-input.radio::after {
+        border-radius: 50%;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1 style="color:blue" align="center"> GAME - LẮP GHÉP HÌNH </h1>
+    <table align="left" style="width: 600px; border-style: solid;">
+        <tr>
+            <td align="center">
+                <label style="font-size: 28px;" > <b>Thiết bị</b></label> <br>
+                <label style="font-size: 22px;" > <i>(Theo danh mục của BGD)</i></label> <br><br>
+                <img id="image1" src="image/game/tamgiac.png" class="image" onclick="moveIMG(0)">
+                <img id="image2" src="image/game/tamgiac.png" class="image" onclick="moveIMG(1)">
+                <img id="image3" src="image/game/tamgiac.png" class="image" onclick="moveIMG(2)">
+                <img id="image4" src="image/game/tamgiac.png" class="image" onclick="moveIMG(3)">
+                <img id="image5" src="image/game/tamgiac.png" class="image" onclick="moveIMG(4)">
+                <img id="image6" src="image/game/tamgiac.png" class="image" onclick="moveIMG(5)">
+                <img id="image7" src="image/game/thang.png" class="image" onclick="moveIMG(6)">
+                <img id="image8" src="image/game/thang.png" class="image" onclick="moveIMG(7)">
+                <img id="image9" src="image/game/thang.png" class="image" onclick="moveIMG(8)">
+                <br><br>
+                <img id="image10" src="image/game/quedai.png" class="que" onclick="moveIMG(9)">
+                <img id="image11" src="image/game/quedai.png" class="que" onclick="moveIMG(10)">
+                <img id="image12" src="image/game/quedai.png" class="que" onclick="moveIMG(11)">
+                <img id="image13" src="image/game/quedai.png" class="que" onclick="moveIMG(12)">
+                <img id="image14" src="image/game/quedai.png" class="que" onclick="moveIMG(13)">
+                <img id="image15" src="image/game/quedai.png" class="que" onclick="moveIMG(14)">
+                <img id="image16" src="image/game/quedai.png" class="que" onclick="moveIMG(15)">
+                <img id="image17" src="image/game/quedai.png" class="que" onclick="moveIMG(16)">
+                <img id="image18" src="image/game/quedai.png" class="que" onclick="moveIMG(17)">
+                <img id="image19" src="image/game/quedai.png" class="que" onclick="moveIMG(18)">
+                <img id="image20" src="image/game/quedai.png" class="que" onclick="moveIMG(19)">
+                <img id="image21" src="image/game/quedai.png" class="que" onclick="moveIMG(20)">
+                <br><br>
+                <img id="image22" src="image/game/quengan.png" class="que" onclick="moveIMG(21)">
+                <img id="image23" src="image/game/quengan.png" class="que" onclick="moveIMG(22)">
+            </td>
+        </tr>
+    </table>
+    <table align="left" style="width: 1180px;">
+        <tr>
+            <td style="width: 60px;"></td>
+            <td >
+                <label style="font-size: 22px;"><input type="radio" id="yeuto" class="option-input radio" name="radio" checked /><b> Tam giác đều </b></label><br>
+                <label style="font-size: 22px;"><input type="radio" id="chuvi" class="option-input radio" name="radio" /><b> Lục giác đều </b></label><br>
+                <label style="font-size: 22px;"><input type="radio" id="chuvi" class="option-input radio" name="radio" /><b> Hình chữ nhật </b></label><br>
+            </td>
+            <td style="width: 30px;"></td>
+            <td>
+                <label style="font-size: 22px;"><input type="radio" id="yeuto" class="option-input radio" name="radio" /><b> Hình vuông </b></label><br>
+                <label style="font-size: 22px;"><input type="radio" id="chuvi" class="option-input radio" name="radio" /><b> Hình thoi </b></label><br>
+                <label style="font-size: 22px;"><input type="radio" id="chuvi" class="option-input radio" name="radio" /><b> Hình bình hành </b></label><br>
+            </td>
+            <td style="width: 60px;"></td>
+        </tr>
+        <tr>
+            <td colspan="5" style="height: 700px; width: 800px; border-style: solid; border-color: rgb(226, 125, 43);">
+                
+            </td>
+        </tr>
+    </table>
+</body>
+<script>
+    const im1 = document.getElementById('image1');
+    const im2 = document.getElementById('image2');
+    const im3 = document.getElementById('image3');
+    const im4 = document.getElementById('image4');
+    const im5 = document.getElementById('image5');
+    const im6 = document.getElementById('image6');
+    const im7 = document.getElementById('image7');
+    const im8 = document.getElementById('image8');
+    const im9 = document.getElementById('image9');
+    const im10 = document.getElementById('image10');
+    const im11 = document.getElementById('image11');
+    const im12 = document.getElementById('image12');
+    const im13 = document.getElementById('image13');
+    const im14 = document.getElementById('image14');
+    const im15 = document.getElementById('image15');
+    const im16 = document.getElementById('image16');
+    const im17 = document.getElementById('image17');
+    const im18 = document.getElementById('image18');
+    const im19 = document.getElementById('image19');
+    const im20 = document.getElementById('image20');
+    const im21 = document.getElementById('image21');
+    const im22 = document.getElementById('image22');
+    const im23 = document.getElementById('image23');
+    let ck =[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    let rot=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
+    function moveIMG(x){
+        ck[x] = !ck[x];
+    }
+
+    function resetZIndex(){
+        im1.style.zIndex=1;
+        im2.style.zIndex=1;
+        im3.style.zIndex=1;
+        im4.style.zIndex=1;
+        im5.style.zIndex=1;
+        im6.style.zIndex=1;
+        im7.style.zIndex=1;
+        im8.style.zIndex=1;
+        im9.style.zIndex=1;
+        im10.style.zIndex=1;
+        im11.style.zIndex=1;
+        im12.style.zIndex=1;
+        im13.style.zIndex=1;
+        im14.style.zIndex=1;
+        im15.style.zIndex=1;
+        im16.style.zIndex=1;
+        im17.style.zIndex=1;
+        im18.style.zIndex=1;
+        im19.style.zIndex=1;
+        im20.style.zIndex=1;
+        im21.style.zIndex=1;
+        im22.style.zIndex=1;
+        im23.style.zIndex=1;
+    }
+    document.onkeypress = function(evt) {
+        evt =  window.event;
+        var charCode = evt.keyCode || evt.which;
+        var charStr = String.fromCharCode(charCode);
+        if (charStr==' ')
+        {
+            let i=0;
+            for (i=0;i<23;i++) if (ck[i]) break;
+            rot[i]+=30 ;
+            if (i==0) im1.style.transform = "rotate("+rot[i]+"deg)";
+            if (i==1) im2.style.transform = "rotate("+rot[i]+"deg)";
+            if (i==2) im3.style.transform = "rotate("+rot[i]+"deg)";
+            if (i==3) im4.style.transform = "rotate("+rot[i]+"deg)";
+            if (i==4) im5.style.transform = "rotate("+rot[i]+"deg)";
+            if (i==5) im6.style.transform = "rotate("+rot[i]+"deg)";
+            if (i==6) im7.style.transform = "rotate("+rot[i]+"deg)";
+            if (i==7) im8.style.transform = "rotate("+rot[i]+"deg)";
+            if (i==8) im9.style.transform = "rotate("+rot[i]+"deg)";
+            if (i==9) im10.style.transform = "rotate("+rot[i]+"deg)";
+            if (i==10) im11.style.transform = "rotate("+rot[i]+"deg)";
+            if (i==11) im12.style.transform = "rotate("+rot[i]+"deg)";
+            if (i==12) im13.style.transform = "rotate("+rot[i]+"deg)";
+            if (i==13) im14.style.transform = "rotate("+rot[i]+"deg)";
+            if (i==14) im15.style.transform = "rotate("+rot[i]+"deg)";
+            if (i==15) im16.style.transform = "rotate("+rot[i]+"deg)";
+            if (i==16) im17.style.transform = "rotate("+rot[i]+"deg)";
+            if (i==17) im18.style.transform = "rotate("+rot[i]+"deg)";
+            if (i==18) im19.style.transform = "rotate("+rot[i]+"deg)";
+            if (i==19) im20.style.transform = "rotate("+rot[i]+"deg)";
+            if (i==20) im21.style.transform = "rotate("+rot[i]+"deg)";
+            if (i==21) im22.style.transform = "rotate("+rot[i]+"deg)";
+            if (i==22) im23.style.transform = "rotate("+rot[i]+"deg)";
+        }
+    };
+
+    window.addEventListener('mousemove',(e)=>{
+        if (ck[0])
+        {
+            resetZIndex(); 
+            im1.style.zIndex=5;
+            im1.style.left = (e.pageX-130)+"px";
+            im1.style.top = (e.pageY-270)+"px";
+        }
+        if (ck[1])
+        {
+            resetZIndex(); 
+            im2.style.zIndex=5;
+            im2.style.left = (e.pageX-300)+"px";
+            im2.style.top = (e.pageY-270)+"px";
+        }
+        if (ck[2])
+        {
+            resetZIndex(); 
+            im3.style.zIndex=5;
+            im3.style.left = (e.pageX-470)+"px";
+            im3.style.top = (e.pageY-270)+"px";
+        }
+        if (ck[3])
+        {
+            resetZIndex(); 
+            im4.style.zIndex=5;
+            im4.style.left = (e.pageX-130)+"px";
+            im4.style.top = (e.pageY-440)+"px";
+        }
+        if (ck[4])
+        {
+            resetZIndex(); 
+            im5.style.zIndex=5;
+            im5.style.left = (e.pageX-300)+"px";
+            im5.style.top = (e.pageY-440)+"px";
+        }
+        if (ck[5])
+        {
+            resetZIndex(); 
+            im6.style.zIndex=5;
+            im6.style.left = (e.pageX-470)+"px";
+            im6.style.top = (e.pageY-440)+"px";
+        }
+        if (ck[6])
+        {
+            resetZIndex(); 
+            im7.style.zIndex=5;
+            im7.style.left = (e.pageX-130)+"px";
+            im7.style.top = (e.pageY-550)+"px";
+        }
+        if (ck[7])
+        {
+            resetZIndex(); 
+            im8.style.zIndex=5;
+            im8.style.left = (e.pageX-300)+"px";
+            im8.style.top = (e.pageY-550)+"px";
+        }
+        if (ck[8])
+        {
+            resetZIndex(); 
+            im9.style.zIndex=5;
+            im9.style.left = (e.pageX-470)+"px";
+            im9.style.top = (e.pageY-550)+"px";
+        }
+
+        if (ck[9])
+        {
+            resetZIndex(); 
+            im10.style.zIndex=5;
+            im10.style.left = (e.pageX-130)+"px";
+            im10.style.top = (e.pageY-600)+"px";
+        }
+        if (ck[10])
+        {
+            resetZIndex(); 
+            im11.style.zIndex=5;
+            im11.style.left = (e.pageX-310)+"px";
+            im11.style.top = (e.pageY-600)+"px";
+        }
+        if (ck[11])
+        {
+            resetZIndex(); 
+            im12.style.zIndex=5;
+            im12.style.left = (e.pageX-490)+"px";
+            im12.style.top = (e.pageY-600)+"px";
+        }
+        if (ck[12])
+        {
+            resetZIndex(); 
+            im13.style.zIndex=5;
+            im13.style.left = (e.pageX-130)+"px";
+            im13.style.top = (e.pageY-618)+"px";
+        }
+        if (ck[13])
+        {
+            resetZIndex(); 
+            im14.style.zIndex=5;
+            im14.style.left = (e.pageX-310)+"px";
+            im14.style.top = (e.pageY-618)+"px";
+        }
+        if (ck[14])
+        {
+            resetZIndex(); 
+            im15.style.zIndex=5;
+            im15.style.left = (e.pageX-490)+"px";
+            im15.style.top = (e.pageY-618)+"px";
+        }
+    
+        if (ck[15])
+        {
+            resetZIndex(); 
+            im16.style.zIndex=5;
+            im16.style.left = (e.pageX-130)+"px";
+            im16.style.top = (e.pageY-636)+"px";
+        }
+        if (ck[16])
+        {
+            resetZIndex(); 
+            im17.style.zIndex=5;
+            im17.style.left = (e.pageX-310)+"px";
+            im17.style.top = (e.pageY-636)+"px";
+        }
+        if (ck[17])
+        {
+            resetZIndex(); 
+            im18.style.zIndex=5;
+            im18.style.left = (e.pageX-490)+"px";
+            im18.style.top = (e.pageY-636)+"px";
+        }
+        if (ck[18])
+        {
+            resetZIndex(); 
+            im19.style.zIndex=5;
+            im19.style.left = (e.pageX-130)+"px";
+            im19.style.top = (e.pageY-654)+"px";
+        }
+        if (ck[19])
+        {
+            resetZIndex(); 
+            im20.style.zIndex=5;
+            im20.style.left = (e.pageX-310)+"px";
+            im20.style.top = (e.pageY-654)+"px";
+        }
+        if (ck[20])
+        {
+            resetZIndex(); 
+            im21.style.zIndex=5;
+            im21.style.left = (e.pageX-490)+"px";
+            im21.style.top = (e.pageY-654)+"px";
+        }
+        if (ck[21])
+        {
+            resetZIndex(); 
+            im22.style.zIndex=5;
+            im22.style.left = (e.pageX-260)+"px";
+            im22.style.top = (e.pageY-690)+"px";
+        }
+        if (ck[22])
+        {
+            resetZIndex(); 
+            im23.style.zIndex=5;
+            im23.style.left = (e.pageX-350)+"px";
+            im23.style.top = (e.pageY-690)+"px";
+        }
+    })
+</script>
+</html>

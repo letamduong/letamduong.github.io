@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Main </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+</head>
+<body>
+    <h1 style="color:blue" align="center"> MỘT SỐ HÌNH PHẲNG TRONG THỰC TIỄN </h1>
+    <table align="center" style="background-color:rgb(183, 253, 255); width:60%; border-spacing: 10px;">
+        <tr>
+            <td><img src="image/main/bienbao.png" style="width: 200px;height:200px;"></td>
+            <td><img src="image/main/banco.png" style="width:200px;height:200px;"></td>
+            <td><img src="image/main/kimtuthap.png" style="width:200px;height:200px;"></td>
+            <td><img src="image/main/muttet.png" style="width:200px;height:200px;"></td>
+        </tr>
+        <tr>
+            <td><img src="image/main/cuaso.png" style="width:200px;height:200px;"></td>
+            <td><img src="image/main/cauthang.png" style="width:200px;height:200px;"></td>
+            <td><img src="image/main/hinhthangcan.png" style="width:200px;height:200px;"></td>
+            <td><img src="image/main/guongThoi.jpg" style="width:200px;height:200px;"></td>
+        </tr>
+        
+    </table><br><br><br>
+    <table align="center" style="border-spacing:10px; zoom: 70%;">
+        <tr>
+            <td style="width:500px;">
+                <img id="nhanbiethinh" src="image/main/tivi.png" style="width:400px;"> <br>
+                <label style="color:blue; font-style: italic; font-size: 50px;"><b> Nhận biết hình </b></label>
+            </td>
+            <td style="width:500px;">
+                <img id="yeutocoban" src="image/main/lucgiac.png" style="width:400px;"><br>
+                <label style="color:rgb(146, 17, 114); font-style: italic; font-size: 50px;"><b> Một số yếu tố cơ bản của hình </b></label>
+            </td>
+            <td style="width:500px;">
+                <img id="ghephinh" src="image/main/hcn.png" style="width:400px;"><br>
+                <label style="color:rgb(13, 172, 26); font-style: italic; font-size: 50px;"><b> GAME: Lắp ghép hình </b></label>
+            </td>
+            <td style="width:500px; text-align: center;">
+                <img id="vehinh" src="image/main/ve.png" style="width:400px;"><br>
+                <label style="color:rgb(211, 33, 33); font-style: italic; font-size: 52px;"><b> Vẽ hình </b></label>
+            </td>
+        </tr>
+
+    </table>
+</body>
+<script>
+    let nhanbiethinh = document.getElementById('nhanbiethinh');
+    let yeutocoban = document.getElementById('yeutocoban');
+    let ghephinh = document.getElementById('ghephinh');
+    let vehinh = document.getElementById('vehinh');
+
+    nhanbiethinh.addEventListener('click',e=>{
+        window.open("NhanBietHinh.html","_self");
+    });
+    yeutocoban.addEventListener('click',e=>{
+        window.open("YeuToCoBan.html","_self");
+    });
+    ghephinh.addEventListener('click',e=>{
+        window.open("GameGhepHinh.html","_self");
+    });
+    vehinh.addEventListener('click',e=>{
+        window.open("VeHinh.html","_self");
+    });
+</script>
+</html>

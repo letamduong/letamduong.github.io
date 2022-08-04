@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html style="max-width: 1800px; min-width:1800px;">
+<head>
+    <title> Nhận biết hình </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <style>
+        .image{
+            width: 170px;
+            height:180px;
+            position: relative ;
+            z-index: 1;
+            border: 0px;
+        }
+        .imgINtb{
+            width: 100px;
+            height:100px;
+            border: 0px;
+        }
+        .img{
+            float: left;
+            width: 50%;
+            text-align: center;
+        }
+        .table{
+            float: left;
+            width: 50%;
+            text-align: center;
+            z-index: 1;
+        }
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            width: 200px;
+            height: 100px;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .button1 {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .button2 {
+            background-color: #008CBA;
+            color: white;
+        }
+
+        .button3 {
+        background-color: #f44336;
+        color: white;
+        }
+
+        .button4 {
+            background-color: #a7aa0c;
+            color: white;
+        }
+
+        .button5 {
+        background-color: #555555;
+        color: white;
+        }
+
+        .button6 {
+        background-color: #d8560b;
+        color: white;
+        }
+ 
+        .button7 {
+        background-color: #e728be;
+        color: white;
+        }
+        .table, .td {
+            border: 1px solid black;
+            border-radius: 5px;
+            border-spacing: 5px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="img">
+        <h1 style="color:blue" align="center"> NHẬN BIẾT HÌNH </h1>
+    <h2 style="color:rgb(252, 50, 50)" align="center"><i> Yêu cầu: Kéo thả hình vẽ vào ô thích hợp </i></h2>
+        <table>
+            <tr>
+                <td><img id="image1" src="image/nhanbiethinh/thangvuong.jpg" class="image" ></td>
+                <td><img id="image2" src="image/nhanbiethinh/banco.png" class="image"></td>
+                <td><img id="image3" src="image/nhanbiethinh/guongThoi.jpg" class="image"></td>
+                <td><img id="image4" src="image/nhanbiethinh/tamgiacdeu.jpg" class="image"></td>
+                <td><img id="image5" src="image/nhanbiethinh/rubik.jpg" class="image"></td>
+            </tr>
+            <tr>
+                <td><img id="image6" src="image/nhanbiethinh/cuaso.png" class="image"></td>
+                <td><img id="image7" src="image/nhanbiethinh/hbh.jpg" class="image"></td>
+                <td><img id="image8" src="image/nhanbiethinh/ngugiac.jpg" class="image"></td>
+                <td><img id="image9" src="image/nhanbiethinh/bienbao.png" class="image"></td>
+                <td><img id="image10" src="image/nhanbiethinh/hcn.jpg" class="image"></td>
+            </tr>
+            <tr>
+                <td><img id="image11" src="image/nhanbiethinh/vai.jpg" class="image"></td>
+                <td><img id="image12" src="image/nhanbiethinh/lucgiac.jpg" class="image"></td>
+                <td><img id="image13" src="image/nhanbiethinh/cauthang.png" class="image"></td>
+                <td><img id="image14" src="image/nhanbiethinh/thangcan.jpg" class="image"></td>
+                <td><img id="image15" src="image/nhanbiethinh/tamgiac.jpg" class="image"></td>
+            </tr>
+            <tr>
+                <td><img id="image16" src="image/nhanbiethinh/vuong.jpg" class="image"></td>
+                <td><img id="image17" src="image/nhanbiethinh/bienbaotron.png" class="image"></td>
+                <td><img id="image18" src="image/nhanbiethinh/muttet.png" class="image"></td>
+                <td><img id="image19" src="image/nhanbiethinh/thoi.jpg" class="image"></td>
+                <td><img id="image20" src="image/nhanbiethinh/hinhthangcan.png" class="image"></td>
+            </tr>
+        </table>
+        <!-- <h2 id="xx">Tên hình</h2>
+        <h2 id="yy">Tên hình</h2> -->
+    </div>
+    <div >
+        <table class="table" align="center" id="tb">
+            <tr>
+                <td class="td" style="width:10%"><h2>Tên hình</h2></td>
+                <td class="td" style="width:40%"><h2>Hình ảnh thực tế</h2></td>
+                <td class="td" style="width:40%"><h2>Hình vẽ</h2></td>
+            </tr>
+            <tr>
+                <td class="td" ><button id="bttamgiacdeu" class="button button1">Tam giác đều</button></td>
+                <td class="td" ><img id="tb11" class="imgINtb"></td>
+                <td class="td" ><img id="tb21" class="imgINtb"></td>
+            </tr>
+            <tr>
+                <td class="td" ><button id="bthinhvuong" class="button button2">Hình vuông</button></td>
+                <td class="td" ><img id="tb12" class="imgINtb"></td>
+                <td class="td" ><img id="tb22" class="imgINtb"></td>
+            </tr>
+            <tr>
+                <td class="td" ><button id="btlucgiacdeu" class="button button3">Lục giác đều</button></td>
+                <td class="td" ><img id="tb13" class="imgINtb"></td>
+                <td class="td" ><img id="tb23" class="imgINtb"></td>
+            </tr>
+            <tr>
+                <td class="td" ><button id="bthinhchunhat" class="button button4">Hình chữ nhật</button></td>
+                <td class="td" ><img id="tb14" class="imgINtb"></td>
+                <td class="td" ><img id="tb24" class="imgINtb"></td>
+            </tr>
+            <tr>
+                <td class="td" ><button id="bthinhthoi" class="button button5">Hình thoi</button></td>
+                <td class="td" ><img id="tb15" class="imgINtb"></td>
+                <td class="td" ><img id="tb25" class="imgINtb"></td>
+            </tr>
+            <tr>
+                <td class="td" ><button id="bthinhbinhhanh" class="button button6">Hình bình hành</button></td>
+                <td class="td" ><img id="tb16" class="imgINtb"></td>
+                <td class="td" ><img id="tb26" class="imgINtb"></td>
+            </tr>
+            <tr>
+                <td class="td" ><button id="bthinhthangcan" class="button button7">Hình thang cân</button></td>
+                <td class="td" ><img id="tb17" class="imgINtb"></td>
+                <td class="td" ><img id="tb27" class="imgINtb"></td>
+            </tr>
+        </table>
+    </div><br><br><br>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script>
+
+
+    const image1 = document.getElementById('image1');
+    const image2 = document.getElementById('image2');
+    const image3 = document.getElementById('image3');
+    const image4 = document.getElementById('image4');
+    const image5 = document.getElementById('image5');
+    const image6 = document.getElementById('image6');
+    const image7 = document.getElementById('image7');
+    const image8 = document.getElementById('image8');
+    const image9 = document.getElementById('image9');
+    const image10 = document.getElementById('image10');
+    const image11 = document.getElementById('image11');
+    const image12 = document.getElementById('image12');
+    const image13 = document.getElementById('image13');
+    const image14 = document.getElementById('image14');
+    const image15 = document.getElementById('image15');
+    const image16 = document.getElementById('image16');
+    const image17 = document.getElementById('image17');
+    const image18 = document.getElementById('image18');
+    const image19 = document.getElementById('image19');
+    const image20 = document.getElementById('image20');
+
+    let dr1=false, dr2=false, dr3=false, dr4=false, dr5=false;
+    let dr6=false, dr7=false, dr8=false, dr9=false, dr10=false;
+    let dr11=false, dr12=false, dr13=false, dr14=false, dr15=false;
+    let dr16=false, dr17=false, dr18=false, dr19=false, dr20=false;
+    const dx=150, dy=45;
+    const posx=[1274,1620];
+    const posy=[146,262,380,497,614,732,850];
+
+    image1.addEventListener('click',(e)=>{
+        dr1=!dr1;
+        image1.style.zIndex="2";
+        if (dr1==false){
+            image1.style.left='0';
+            image1.style.top='0';
+        }
+    });
+    image2.addEventListener('click',(e)=>{
+        dr2=!dr2;
+        image2.style.zIndex="2";
+        if (dr2==false){
+            if (e.pageX>posx[0]-dx && e.pageX<posx[0]+dx && e.pageY>posy[1]-dy && e.pageY<posy[1]+dy)
+            {
+                document.getElementById("tb12").src = image2.src;
+                image2.style.visibility='hidden';
+            }
+            else
+            {
+                image2.style.left='0';
+                image2.style.top='0';
+            }
+        }
+    });
+    image3.addEventListener('click',(e)=>{
+        dr3=!dr3;
+        image3.style.zIndex="2";
+        if (dr3==false){
+            if (e.pageX>posx[0]-dx && e.pageX<posx[0]+dx && e.pageY>posy[4]-dy && e.pageY<posy[4]+dy)
+            {
+                document.getElementById("tb15").src = image3.src;
+                image3.style.visibility='hidden';
+            }
+            else
+            {
+                image3.style.left='0';
+                image3.style.top='0';
+            }
+        }
+    });
+    image4.addEventListener('click',(e)=>{
+        dr4=!dr4;
+        image4.style.zIndex="2";
+        if (dr4==false){
+            if (e.pageX>posx[1]-dx && e.pageX<posx[1]+dx && e.pageY>posy[0]-dy && e.pageY<posy[0]+dy)
+            {
+                document.getElementById("tb21").src = image4.src;
+                image4.style.visibility='hidden';
+            }
+            else
+            {
+                image4.style.left='0';
+                image4.style.top='0';
+            }
+        }
+    });
+    image5.addEventListener('click',(e)=>{
+        dr5=!dr5;
+        image5.style.zIndex="2";
+        if (dr5==false){
+            image5.style.left='0';
+            image5.style.top='0';
+        }
+    });
+    image6.addEventListener('click',(e)=>{
+        dr6=!dr6;
+        image6.style.zIndex="2";
+        if (dr6==false){
+            if (e.pageX>posx[0]-dx && e.pageX<posx[0]+dx && e.pageY>posy[3]-dy && e.pageY<posy[3]+dy)
+            {
+                document.getElementById("tb14").src = image6.src;
+                image6.style.visibility='hidden';
+            }
+            else
+            {
+                image6.style.left='0';
+                image6.style.top='0';
+            }
+        }
+    });
+    image7.addEventListener('click',(e)=>{
+        dr7=!dr7;
+        image7.style.zIndex="2";
+        if (dr7==false){
+            if (e.pageX>posx[1]-dx && e.pageX<posx[1]+dx && e.pageY>posy[5]-dy && e.pageY<posy[5]+dy)
+            {
+                document.getElementById("tb26").src = image7.src;
+                image7.style.visibility='hidden';
+            }
+            else
+            {
+                image7.style.left='0';
+                image7.style.top='0';
+            }
+        }
+    });
+    image8.addEventListener('click',(e)=>{
+        dr8=!dr8;
+        image8.style.zIndex="2";
+        if (dr8==false){
+            image8.style.left='0';
+            image8.style.top='0';
+        }
+    });
+    image9.addEventListener('click',(e)=>{
+        dr9=!dr9;
+        image9.style.zIndex="2";
+        if (dr9==false){
+            if (e.pageX>posx[0]-dx && e.pageX<posx[0]+dx && e.pageY>posy[0]-dy && e.pageY<posy[0]+dy)
+            {
+                document.getElementById("tb11").src = image9.src;
+                image9.style.visibility='hidden';
+            }
+            else
+            {
+                image9.style.left='0';
+                image9.style.top='0';
+            }
+        }
+    });
+    image10.addEventListener('click',(e)=>{
+        dr10=!dr10;
+        image10.style.zIndex="2";
+        if (dr10==false){
+            if (e.pageX>posx[1]-dx && e.pageX<posx[1]+dx && e.pageY>posy[3]-dy && e.pageY<posy[3]+dy)
+            {
+                document.getElementById("tb24").src = image10.src;
+                image10.style.visibility='hidden';
+            }
+            else
+            {
+                image10.style.left='0';
+                image10.style.top='0';
+            }
+        }
+    });
+
+    image11.addEventListener('click',(e)=>{
+        dr11=!dr11;
+        image11.style.zIndex="2";
+        if (dr11==false){
+            image11.style.left='0';
+            image11.style.top='0';
+        }
+    });
+    image12.addEventListener('click',(e)=>{
+        dr12=!dr12;
+        image12.style.zIndex="2";
+        if (dr12==false){
+            if (e.pageX>posx[1]-dx && e.pageX<posx[1]+dx && e.pageY>posy[2]-dy && e.pageY<posy[2]+dy)
+            {
+                document.getElementById("tb23").src = image12.src;
+                image12.style.visibility='hidden';
+            }
+            else
+            {
+                image12.style.left='0';
+                image12.style.top='0';
+            }
+        }
+    });
+    image13.addEventListener('click',(e)=>{
+        dr13=!dr13;
+        image13.style.zIndex="2";
+        if (dr13==false){
+            if (e.pageX>posx[0]-dx && e.pageX<posx[0]+dx && e.pageY>posy[5]-dy && e.pageY<posy[5]+dy)
+            {
+                document.getElementById("tb16").src = image13.src;
+                image13.style.visibility='hidden';
+            }
+            else
+            {
+                image13.style.left='0';
+                image13.style.top='0';
+            }
+        }
+    });
+    image14.addEventListener('click',(e)=>{
+        dr14=!dr14;
+        image14.style.zIndex="2";
+        if (dr14==false){
+            if (e.pageX>posx[1]-dx && e.pageX<posx[1]+dx && e.pageY>posy[6]-dy && e.pageY<posy[6]+dy)
+            {
+                document.getElementById("tb27").src = image14.src;
+                image14.style.visibility='hidden';
+            }
+            else
+            {
+                image14.style.left='0';
+                image14.style.top='0';
+            }
+        }
+    });
+    image15.addEventListener('click',(e)=>{
+        dr15=!dr15;
+        image15.style.zIndex="2";
+        if (dr15==false){
+            image15.style.left='0';
+            image15.style.top='0';
+        }
+    });
+    image16.addEventListener('click',(e)=>{
+        dr16=!dr16;
+        image16.style.zIndex="2";
+        if (dr16==false){
+            if (e.pageX>posx[1]-dx && e.pageX<posx[1]+dx && e.pageY>posy[1]-dy && e.pageY<posy[1]+dy)
+            {
+                document.getElementById("tb22").src = image16.src;
+                image16.style.visibility='hidden';
+            }
+            else
+            {
+                image16.style.left='0';
+                image16.style.top='0';
+            }
+        }
+    });
+    image17.addEventListener('click',(e)=>{
+        dr17=!dr17;
+        image17.style.zIndex="2";
+        if (dr17==false){
+            image17.style.left='0';
+            image17.style.top='0';
+        }
+    });
+    image18.addEventListener('click',(e)=>{
+        dr18=!dr18;
+        image18.style.zIndex="2";
+        if (dr18==false){
+            if (e.pageX>posx[0]-dx && e.pageX<posx[0]+dx && e.pageY>posy[2]-dy && e.pageY<posy[2]+dy)
+            {
+                document.getElementById("tb13").src = image18.src;
+                image18.style.visibility='hidden';
+            }
+            else
+            {
+                image18.style.left='0';
+                image18.style.top='0';
+            }
+        }
+    });
+    image19.addEventListener('click',(e)=>{
+        dr19=!dr19;
+        image19.style.zIndex="2";
+        if (dr19==false){
+            if (e.pageX>posx[1]-dx && e.pageX<posx[1]+dx && e.pageY>posy[4]-dy && e.pageY<posy[4]+dy)
+            {
+                document.getElementById("tb25").src = image19.src;
+                image19.style.visibility='hidden';
+            }
+            else
+            {
+                image19.style.left='0';
+                image19.style.top='0';
+            }
+        }
+    });
+    image20.addEventListener('click',(e)=>{
+        dr20=!dr20;
+        image20.style.zIndex="2";
+        if (dr20==false){
+            if (e.pageX>posx[0]-dx && e.pageX<posx[0]+dx && e.pageY>posy[6]-dy && e.pageY<posy[6]+dy)
+            {
+                document.getElementById("tb17").src = image20.src;
+                image20.style.visibility='hidden';
+            }
+            else
+            {
+                image20.style.left='0';
+                image20.style.top='0';
+            }
+        }
+    });
+
+
+    window.addEventListener('mousemove',(e)=>{
+        // xx.innerHTML = e.pageX;
+        // yy.innerHTML = e.pageY;
+        if (dr1==true){
+            image1.style.left = (e.pageX-100)+"px";
+            image1.style.top = (e.pageY-220)+"px";
+        }
+        if (dr2==true){
+            image2.style.left = (e.pageX-270)+"px";
+            image2.style.top = (e.pageY-220)+"px";
+        }
+        if (dr3==true){
+            image3.style.left = (e.pageX-440)+"px";
+            image3.style.top = (e.pageY-220)+"px";
+        }
+        if (dr4==true){
+            image4.style.left = (e.pageX-610)+"px";
+            image4.style.top = (e.pageY-220)+"px";
+        }
+        if (dr5==true){
+            image5.style.left = (e.pageX-780)+"px";
+            image5.style.top = (e.pageY-220)+"px";
+        }
+        if (dr6==true){
+            image6.style.left = (e.pageX-100)+"px";
+            image6.style.top = (e.pageY-400)+"px";
+        }
+        if (dr7==true){
+            image7.style.left = (e.pageX-270)+"px";
+            image7.style.top = (e.pageY-400)+"px";
+        }
+        if (dr8==true){
+            image8.style.left = (e.pageX-440)+"px";
+            image8.style.top = (e.pageY-400)+"px";
+        }
+        if (dr9==true){
+            image9.style.left = (e.pageX-610)+"px";
+            image9.style.top = (e.pageY-400)+"px";
+        }
+        if (dr10==true){
+            image10.style.left = (e.pageX-780)+"px";
+            image10.style.top = (e.pageY-400)+"px";
+        }
+        if (dr11==true){
+            image11.style.left = (e.pageX-100)+"px";
+            image11.style.top = (e.pageY-580)+"px";
+        }
+        if (dr12==true){
+            image12.style.left = (e.pageX-270)+"px";
+            image12.style.top = (e.pageY-580)+"px";
+        }
+        if (dr13==true){
+            image13.style.left = (e.pageX-440)+"px";
+            image13.style.top = (e.pageY-580)+"px";
+        }
+        if (dr14==true){
+            image14.style.left = (e.pageX-610)+"px";
+            image14.style.top = (e.pageY-580)+"px";
+        }
+        if (dr15==true){
+            image15.style.left = (e.pageX-780)+"px";
+            image15.style.top = (e.pageY-580)+"px";
+        }
+        if (dr16==true){
+            image16.style.left = (e.pageX-100)+"px";
+            image16.style.top = (e.pageY-760)+"px";
+        }
+        if (dr17==true){
+            image17.style.left = (e.pageX-270)+"px";
+            image17.style.top = (e.pageY-760)+"px";
+        }
+        if (dr18==true){
+            image18.style.left = (e.pageX-440)+"px";
+            image18.style.top = (e.pageY-760)+"px";
+        }
+        if (dr19==true){
+            image19.style.left = (e.pageX-610)+"px";
+            image19.style.top = (e.pageY-760)+"px";
+        }
+        if (dr20==true){
+            image20.style.left = (e.pageX-780)+"px";
+            image20.style.top = (e.pageY-760)+"px";
+        }
+
+    });
+    // window.addEventListener('mouseup',(e)=>{
+    //     isDrawing=false;
+    // });
+
+    bttamgiacdeu.addEventListener('click',e=>{
+        // console.log(tamgiacdeu.style.left);
+        // moveImg(tamgiacdeu,0,0);
+        // tamgiacdeu.style.height="120px";
+        // tamgiacdeu.style.width="120px";
+        //bienbao.style.zIndex="2";
+        //moveImg(bienbao,200,10);
+        //bienbao.style.height="120px";
+        //bienbao.style.width="120px";
+    });
+    
+
+    // var id = null;
+    // function moveImg(context, x2, y2) {
+    //     var _x=context.style.left, _y=context.style.top;
+    //     id = setInterval(frame, 0);
+    //     function frame() {
+    //         if (_x==x2 && _y==y2){
+    //             clearInterval(id);
+    //         } else {
+    //             if (_x<x2) _x++; 
+    //             if (_y<y2) _y++;
+    //             context.style.left = _x + 'px'; 
+    //             context.style.top = _y + 'px'; 
+    //         }
+    //     }
+    // }   
+</script>
+</html>

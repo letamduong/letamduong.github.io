@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html style="max-width: 1800px; min-width:1800px;">
+<head>
+    <title> VẼ HÌNH </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <style>
+        .image{
+            width: 150px;
+            height:150px;
+        }
+        td{
+            border-color: red;
+            /* border-style: solid; */
+            border-width: 5px;
+            width: 150px;
+            height:150px;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <table align="center" id="table">
+        <tr>
+            <td colspan="2" style="height: 100px; width: 600px;"> 
+                <label style="color:blue; font-size: 36px;" align="center"> <b>VẼ HÌNH</b> </label> <br>
+                <label style="color: red; font-size: 22px; font-style: italic;">(Chọn hình để xem Video)</label>
+            </td>
+            <td style="height: 100px; width: 600px; background-color: rgba(249, 255, 172, 0.863);">
+                <b><label id="lbName" style="color:rgb(252, 0, 0); font-size: 36px; font-style: italic;" align="center"> TAM GIÁC ĐỀU </label></b>
+            </td>
+            <td style="height: 100px;"><img id="play" src="image/vehinh/play.png" style="height: 80px;"></td>
+        </tr>
+        <tr>
+            <td><img id="im1" src="image/yeutocoban/tamgiacdeu.jpg" class="image"></td>
+            <td rowspan="0" colspan="3"><video id="myVideo" width="1300">
+                <source src="image/vehinh/tamgiac.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
+            </td>
+        </tr>
+        <tr>
+            <td><img id="im2" src="image/yeutocoban/vuong.jpg" class="image"></td>
+        </tr>
+        <tr>
+            <td><img id="im3" src="image/yeutocoban/hcn.jpg" class="image"></td>
+        </tr>
+        <tr>
+            <td><img id="im4" src="image/yeutocoban/thoi.jpg" class="image"></td>
+        </tr>
+        <tr>
+            <td><img id="im5" src="image/yeutocoban/hbh.jpg" class="image"></td>
+        </tr>
+    </table>
+</body>
+<script>
+    const im1 = document.getElementById('im1');
+    const im2 = document.getElementById('im2');
+    const im3 = document.getElementById('im3');
+    const im4 = document.getElementById('im4');
+    const im5 = document.getElementById('im5');
+    const video = document.getElementById('myVideo');
+    const table = document.getElementById('table');
+    const play = document.getElementById('play');
+    const lbName = document.getElementById('lbName');
+    let pl=false;
+
+    play.addEventListener('click',(e)=>{
+        if (pl){
+            play.src="image/vehinh/play.png";
+            pl=false;
+            video.pause();
+        }
+        else{
+            play.src="image/vehinh/pause.png";
+            pl=true;
+            video.play();
+        }
+    })
+    table.rows[1].cells[0].style.borderStyle = "solid";
+    function clearBorder()
+    {
+        let i=0;
+        for (i=1;i<=5;i++)
+        {
+            table.rows[i].cells[0].style.borderStyle = "none";
+        }
+        play.src="image/vehinh/play.png";
+        pl=false;
+    }
+    im1.addEventListener('click',(e)=>{
+        clearBorder();
+        table.rows[1].cells[0].style.borderStyle = "solid";
+ 
+        video.src="image/vehinh/tamgiac.mp4";
+        lbName.innerHTML="TAM GIÁC ĐỀU";
+    })
+    im2.addEventListener('click',(e)=>{
+        clearBorder();
+        table.rows[2].cells[0].style.borderStyle = "solid";
+        video.src="image/vehinh/hinhvuong.mp4";
+        lbName.innerHTML="HÌNH VUÔNG";
+    })
+    im3.addEventListener('click',(e)=>{
+        clearBorder();
+        table.rows[3].cells[0].style.borderStyle = "solid";
+        video.src="image/vehinh/hinhchunhat.mp4";
+        lbName.innerHTML="HÌNH CHỮ NHẬT";
+    })
+    im4.addEventListener('click',(e)=>{
+        clearBorder();
+        table.rows[4].cells[0].style.borderStyle = "solid";
+        video.src="image/vehinh/hinhthoi.mp4";
+        lbName.innerHTML="HÌNH THOI";
+    })
+    im5.addEventListener('click',(e)=>{
+        clearBorder();
+        table.rows[5].cells[0].style.borderStyle = "solid";
+        video.src="image/vehinh/hinhbinhhanh.mp4";
+        lbName.innerHTML="HÌNH BÌNH HÀNH";
+    })
+</script>
+</html>

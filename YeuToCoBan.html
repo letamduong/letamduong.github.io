@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html style="max-width: 1800px; min-width:1800px;">
+<head>
+    <title> Một số Yếu tố cơ bản của hình </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <style>
+        .image{
+            width: 200px;
+            height:200px;
+            position: relative ;
+            /* z-index: 1; */
+            border-color: coral;
+        }
+        .button {
+            background-color: rgba(46, 255, 115, 0.808);
+            border: 1px;
+            border: none;
+            color: #000000;
+            width: 180px;
+            height: 50px;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+        .text{
+            visibility: hidden;
+            position: fixed ;
+            z-index: 2;
+        }
+        .option-input {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -ms-appearance: none;
+            -o-appearance: none;
+            appearance: none;
+            position: relative;
+            top: 13.33333px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 40px;
+            width: 40px;
+            transition: all 0.15s ease-out 0s;
+            background: #cbd1d8;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            display: inline-block;
+            margin-right: 0.5rem;
+            outline: none;
+            position: relative;
+            z-index: 1000;
+        }
+        .option-input:hover {
+        background: #9faab7;
+        }
+        .option-input:checked {
+        background: #40e0d0;
+        }
+        .option-input.radio {
+        border-radius: 50%;
+        }
+        .option-input.radio::after {
+        border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color:blue" align="center"> MỘT SỐ YẾU TỐ CƠ BẢN - CHU VI, DIỆN TÍCH CỦA HÌNH </h1>
+    <table align="center" style="background-color:rgb(183, 253, 255); width:60%; border-spacing: 10px;">
+        <tr>
+            <td><img id="im1" src="image/yeutocoban/tamgiacdeu.jpg" class="image"></td>
+            <td><img id="im2" src="image/yeutocoban/vuong.jpg" class="image"></td>
+            <td><img id="im3" src="image/yeutocoban/lucgiac.jpg" class="image"></td>
+            <td><img id="im4" src="image/yeutocoban/hcn.jpg" class="image"></td>
+            <td><img id="im5" src="image/yeutocoban/thoi.jpg" class="image"></td>
+            <td><img id="im6" src="image/yeutocoban/hbh.jpg" class="image"></td>
+            <td><img id="im7" src="image/yeutocoban/thangcan.jpg" class="image"></td>
+        </tr>
+    </table><br>
+    <table align="center">
+        <tr>
+            <td rowspan="0" style="width: 400px;">
+                <label style="font-size: 30px;"><input type="radio" id="yeuto" class="option-input radio" name="radio" checked /><b> Yếu tố cơ bản </b></label>
+                <br><br><br>
+                <label style="font-size: 30px;"><input type="radio" id="chuvi" class="option-input radio" name="radio" /><b> Chu vi và diện tích </b></label>
+            </td>
+            <td rowspan="0" style="width: 620px;">
+                <h1 id="nameINFOR" style="font-size: 40px; color: red; text-align: center;"></h1>
+                <img id="imageINFOR" style="height: 500px; width: 620px;">
+            </td>
+            <td><button id="button1" class="button"> -- </button></td>
+        </tr>
+        <tr>
+            <td><button id="button2" class="button"> -- </button></td>
+        </tr>
+        <tr>
+            <td><button id="button3" class="button"> -- </button></td>
+        </tr>
+        <tr>
+            <td><button id="button4" class="button"> -- </button></td>
+        </tr>
+        <tr>
+            <td><button id="button5" class="button"> -- </button></td>
+        </tr>
+        <tr>
+            <td><button id="button6" class="button"> -- </button></td>
+        </tr>
+        <tr>
+            <td><button id="button7" class="button"> -- </button></td>
+        </tr>
+        <tr>
+            <h2 id="canh" style="color: #ba00b1;" class="text">Cạnh</h2>
+            <h2 id="dinh" style="color: #ba00b1;" class="text">Đỉnh</h2>
+            <h2 id="goc" style="color: #ba00b1;" class="text">Góc</h2>
+            <h2 id="daylon" style="color: #ba00b1;" class="text">Đáy lớn</h2>
+            <h2 id="daynho" style="color: #ba00b1;" class="text">Đáy nhỏ</h2>
+            <h2 id="canhben" style="color: #ba00b1;" class="text">Cạnh bên</h2>
+            <h2 id="haicanhke" style="color: #ba00b1;" class="text">Hai cạnh kề</h2>
+            <h2 id="haicanhdoi" style="color: #ba00b1;" class="text">Hai cạnh đối</h2>
+            <h2 id="haigocdoi" style="color: #ba00b1;" class="text">Hai góc đối</h2>
+            <h2 id="duongcheo" style="color: #ba00b1;" class="text">Đường chéo</h2>
+            <h2 id="gockedaynho" style="color: #ba00b1;" class="text">Góc kề đáy nhỏ</h2>
+            <h2 id="gockedaylon" style="color: #ba00b1;" class="text">Góc kề đáy lớn</h2>
+        </tr>
+    </table>
+    
+
+</body>
+<script>
+    const yeuto = document.getElementById('yeuto');
+    const chuvi = document.getElementById('chuvi');
+    const im1 = document.getElementById('im1');
+    const im2 = document.getElementById('im2');
+    const im3 = document.getElementById('im3');
+    const im4 = document.getElementById('im4');
+    const im5 = document.getElementById('im5');
+    const im6 = document.getElementById('im6');
+    const im7 = document.getElementById('im7');
+    const imageINFOR = document.getElementById('imageINFOR');
+
+    const bt1 = document.getElementById('button1');
+    const bt2 = document.getElementById('button2');
+    const bt3 = document.getElementById('button3');
+    const bt4 = document.getElementById('button4');
+    const bt5 = document.getElementById('button5');
+    const bt6 = document.getElementById('button6');
+    const bt7 = document.getElementById('button7');
+
+    const canh = document.getElementById('canh');
+    const dinh = document.getElementById('dinh');
+    const goc = document.getElementById('goc');
+    const daylon = document.getElementById('daylon');
+    const daynho = document.getElementById('daynho');
+    const canhben = document.getElementById('canhben');
+    const haicanhke = document.getElementById('haicanhke');
+    const haicanhdoi = document.getElementById('haicanhdoi');
+    const haigocdoi = document.getElementById('haigocdoi');
+    const duongcheo = document.getElementById('duongcheo');
+    const gockedaynho = document.getElementById('gockedaynho');
+    const gockedaylon = document.getElementById('gockedaylon');
+
+    let ck=0;
+
+    bt1.addEventListener('click',(e)=>{
+        if (ck==1)
+        {
+            dinh.style.visibility = 'visible';
+            dinh.style.left = "910px";
+            dinh.style.top = "440px";
+        }
+        if (ck==2)
+        {
+            dinh.style.visibility = 'visible';
+            dinh.style.left = "715px";
+            dinh.style.top = "440px";
+        }
+        if (ck==3)
+        {
+            dinh.style.visibility = 'visible';
+            dinh.style.left = "905px";
+            dinh.style.top = "420px";
+        }
+        if (ck==4)
+        {
+            dinh.style.visibility = 'visible';
+            dinh.style.left = "700px";
+            dinh.style.top = "425px";
+        }
+        if (ck==5)
+        {
+            dinh.style.visibility = 'visible';
+            dinh.style.left = "1010px";
+            dinh.style.top = "445px";
+        }
+        if (ck==6)
+        {
+            dinh.style.visibility = 'visible';
+            dinh.style.left = "1240px";
+            dinh.style.top = "500px";
+        }
+        if (ck==7)
+        {
+            dinh.style.visibility = 'visible';
+            dinh.style.left = "800px";
+            dinh.style.top = "490px";
+        }
+    })
+    bt2.addEventListener('click',(e)=>{
+        if (ck==1)
+        {
+            canh.style.visibility = 'visible';
+            canh.style.left = "780px";
+            canh.style.top = "620px";
+        }
+        if (ck==2)
+        {
+            canh.style.visibility = 'visible';
+            canh.style.left = "707px";
+            canh.style.top = "660px";
+        }
+        if (ck==3)
+        {
+            canh.style.visibility = 'visible';
+            canh.style.left = "700px";
+            canh.style.top = "630px";
+        }
+        if (ck==4)
+        {
+            canh.style.visibility = 'visible';
+            canh.style.left = "890px";
+            canh.style.top = "425px";
+        }
+        if (ck==5)
+        {
+            haicanhke.style.visibility = 'visible';
+            haicanhke.style.left = "740px";
+            haicanhke.style.top = "495px";
+        }
+        if (ck==6)
+        {
+            haicanhke.style.visibility = 'visible';
+            haicanhke.style.left = "780px";
+            haicanhke.style.top = "490px";
+        }
+        if (ck==7)
+        {
+            canhben.style.visibility = 'visible';
+            canhben.style.left = "1190px";
+            canhben.style.top = "560px";
+        }
+    })
+    bt3.addEventListener('click',(e)=>{
+        if (ck==1)
+        {
+            goc.style.visibility = 'visible';
+            goc.style.left = "840px";
+            goc.style.top = "810px";
+        }
+        if (ck==2)
+        {
+            goc.style.visibility = 'visible';
+            goc.style.left = "870px";
+            goc.style.top = "825px";
+        }
+        if (ck==3)
+        {
+            goc.style.visibility = 'visible';
+            goc.style.left = "1214px";
+            goc.style.top = "490px";
+        }
+        if (ck==4)
+        {
+            goc.style.visibility = 'visible';
+            goc.style.left = "800px";
+            goc.style.top = "760px";
+        }
+        if (ck==5)
+        {
+            haicanhdoi.style.visibility = 'visible';
+            haicanhdoi.style.left = "750px";
+            haicanhdoi.style.top = "760px";
+        }
+        if (ck==6)
+        {
+            haicanhdoi.style.visibility = 'visible';
+            haicanhdoi.style.left = "1190px";
+            haicanhdoi.style.top = "680px";
+        }
+        if (ck==7)
+        {
+            daynho.style.visibility = 'visible';
+            daynho.style.left = "980px";
+            daynho.style.top = "490px";
+        }
+    })
+    bt4.addEventListener('click',(e)=>{
+        if (ck==2)
+        {
+            duongcheo.style.visibility = 'visible';
+            duongcheo.style.left = "990px";
+            duongcheo.style.top = "590px";
+        }
+        if (ck==3)
+        {
+            duongcheo.style.visibility = 'visible';
+            duongcheo.style.left = "1090px";
+            duongcheo.style.top = "650px";
+        }
+        if (ck==4)
+        {
+            duongcheo.style.visibility = 'visible';
+            duongcheo.style.left = "1000px";
+            duongcheo.style.top = "590px";
+        }
+        if (ck==5)
+        {
+            goc.style.visibility = 'visible';
+            goc.style.left = "1180px";
+            goc.style.top = "650px";
+        }
+        if (ck==6)
+        {
+            goc.style.visibility = 'visible';
+            goc.style.left = "780px";
+            goc.style.top = "710px";
+        }
+        if (ck==7)
+        {
+            daylon.style.visibility = 'visible';
+            daylon.style.left = "890px";
+            daylon.style.top = "815px";
+        }
+    })
+    bt5.addEventListener('click',(e)=>{
+        if (ck==4){
+            haicanhdoi.style.visibility = 'visible';
+            haicanhdoi.style.left = "1150px";
+            haicanhdoi.style.top = "445px";
+        }
+        if (ck==5)
+        {
+            duongcheo.style.visibility = 'visible';
+            duongcheo.style.left = "900px";
+            duongcheo.style.top = "585px";
+        }
+        if (ck==6)
+        {
+            duongcheo.style.visibility = 'visible';
+            duongcheo.style.left = "960px";
+            duongcheo.style.top = "595px";
+        }
+        if (ck==7)
+        {
+            duongcheo.style.visibility = 'visible';
+            duongcheo.style.left = "1000px";
+            duongcheo.style.top = "650px";
+        }
+    })
+    bt6.addEventListener('click',(e)=>{
+        if (ck==5)
+        {
+            haigocdoi.style.visibility = 'visible';
+            haigocdoi.style.left = "1150px";
+            haigocdoi.style.top = "750px";
+        }
+        if (ck==6)
+        {
+            haigocdoi.style.visibility = 'visible';
+            haigocdoi.style.left = "800px";
+            haigocdoi.style.top = "795px";
+        }
+        if (ck==7)
+        {
+            gockedaynho.style.visibility = 'visible';
+            gockedaynho.style.left = "660px";
+            gockedaynho.style.top = "600px";
+        }
+    })
+    bt7.addEventListener('click',(e)=>{
+        if (ck==7)
+        {
+            gockedaylon.style.visibility = 'visible';
+            gockedaylon.style.left = "1120px";
+            gockedaylon.style.top = "800px";
+        }
+    })
+
+    // window.addEventListener('mousemove',(e)=>{
+    //     console.log(e.pageX,e.pageY);
+    // })
+    function hiddenAll()
+    {
+        im1.style.borderStyle = 'none';  
+        im2.style.borderStyle = 'none';  
+        im3.style.borderStyle = 'none';  
+        im4.style.borderStyle = 'none';  
+        im5.style.borderStyle = 'none';  
+        im6.style.borderStyle = 'none';  
+        im7.style.borderStyle = 'none';  
+
+        nameINFOR.innerHTML='';
+        
+        bt1.style.visibility='hidden';
+        bt2.style.visibility='hidden';
+        bt3.style.visibility='hidden';
+        bt4.style.visibility='hidden';
+        bt5.style.visibility='hidden';
+        bt6.style.visibility='hidden';
+        bt7.style.visibility='hidden';
+
+        canh.style.visibility='hidden';
+        dinh.style.visibility='hidden';
+        goc.style.visibility='hidden';
+        daylon.style.visibility='hidden';
+        daynho.style.visibility='hidden';
+        canhben.style.visibility='hidden';
+        haicanhke.style.visibility='hidden';
+        haicanhdoi.style.visibility='hidden';
+        haigocdoi.style.visibility='hidden';
+        duongcheo.style.visibility='hidden';
+        gockedaynho.style.visibility='hidden';
+        gockedaylon.style.visibility='hidden';
+    }
+    im1.addEventListener('click',(e)=>{
+        chuvi.checked=false; yeuto.checked=true;
+        hiddenAll();
+        im1.style.borderStyle = 'solid';  
+        nameINFOR.innerHTML = "Tam giác đều";
+        
+        bt1.style.visibility='visible'; bt1.innerHTML="Đỉnh";
+        bt2.style.visibility='visible'; bt2.innerHTML="Cạnh";
+        bt3.style.visibility='visible'; bt3.innerHTML="Góc";
+        imageINFOR.src = "image/yeutocoban/ytoTgiac.png";
+        ck=1;
+    });
+    im2.addEventListener('click',(e)=>{
+        hiddenAll();
+        im2.style.borderStyle = 'solid';  
+        nameINFOR.innerHTML = "Hình vuông";
+        ck=2;
+        if (yeuto.checked){
+            bt1.style.visibility='visible'; bt1.innerHTML="Đỉnh";
+            bt2.style.visibility='visible'; bt2.innerHTML="Cạnh";
+            bt3.style.visibility='visible'; bt3.innerHTML="Góc";
+            bt4.style.visibility='visible'; bt4.innerHTML="Đường chéo";
+            imageINFOR.src = "image/yeutocoban/ytoVuong.png";
+        }
+        else{
+            imageINFOR.src = "image/yeutocoban/tVuong.png";
+        }
+    });
+    im3.addEventListener('click',(e)=>{
+        chuvi.checked=false; yeuto.checked=true;
+        hiddenAll();
+        im3.style.borderStyle = 'solid';  
+        bt1.style.visibility='visible'; bt1.innerHTML="Đỉnh";
+        bt2.style.visibility='visible'; bt2.innerHTML="Cạnh";
+        bt3.style.visibility='visible'; bt3.innerHTML="Góc";
+        bt4.style.visibility='visible'; bt4.innerHTML="Đường chéo";
+        nameINFOR.innerHTML = "Lục giác đều";
+        imageINFOR.src = "image/yeutocoban/ytoLucGiac.png";
+        ck=3;
+    });
+    im4.addEventListener('click',(e)=>{
+        hiddenAll();
+        im4.style.borderStyle = 'solid';  
+        nameINFOR.innerHTML = "Hình chữ nhật";
+        ck=4;
+        if (yeuto.checked){
+            bt1.style.visibility='visible'; bt1.innerHTML="Đỉnh";
+            bt2.style.visibility='visible'; bt2.innerHTML="Cạnh";
+            bt3.style.visibility='visible'; bt3.innerHTML="Góc";
+            bt4.style.visibility='visible'; bt4.innerHTML="Đường chéo";
+            bt5.style.visibility='visible'; bt5.innerHTML="Hai cạnh đối";
+            imageINFOR.src = "image/yeutocoban/ytoHCN.png";
+        }
+        else {
+            imageINFOR.src = "image/yeutocoban/tHCN.png";
+        }
+    });
+    im5.addEventListener('click',(e)=>{
+        hiddenAll();
+        im5.style.borderStyle = 'solid';  
+        nameINFOR.innerHTML = "Hình thoi";
+        ck=5;
+        if(yeuto.checked){
+            bt1.style.visibility='visible'; bt1.innerHTML="Đỉnh";
+            bt2.style.visibility='visible'; bt2.innerHTML="Hai cạnh kề";
+            bt3.style.visibility='visible'; bt3.innerHTML="Hai cạnh đối";
+            bt4.style.visibility='visible'; bt4.innerHTML="Góc";
+            bt5.style.visibility='visible'; bt5.innerHTML="Đường chéo";
+            bt6.style.visibility='visible'; bt6.innerHTML="Hai góc đối";
+            imageINFOR.src = "image/yeutocoban/ytoHThoi.png";
+        }
+        else {
+            imageINFOR.src = "image/yeutocoban/tThoi.png";
+        }
+    });
+    im6.addEventListener('click',(e)=>{
+        hiddenAll();
+        im6.style.borderStyle = 'solid';  
+        nameINFOR.innerHTML = "Hình bình hành";
+        ck=6;
+        if (yeuto.checked){
+            bt1.style.visibility='visible'; bt1.innerHTML="Đỉnh";
+            bt2.style.visibility='visible'; bt2.innerHTML="Hai cạnh kề";
+            bt3.style.visibility='visible'; bt3.innerHTML="Hai cạnh đối";
+            bt4.style.visibility='visible'; bt4.innerHTML="Góc";
+            bt5.style.visibility='visible'; bt5.innerHTML="Đường chéo";
+            bt6.style.visibility='visible'; bt6.innerHTML="Hai góc đối";
+            imageINFOR.src = "image/yeutocoban/ytoHBH.png";
+        }
+        else {
+            imageINFOR.src = "image/yeutocoban/tHBH.png";
+        }
+    });
+    im7.addEventListener('click',(e)=>{
+        hiddenAll();
+        im7.style.borderStyle = 'solid';  
+        nameINFOR.innerHTML = "Hình thang cân";
+        ck=7;
+        if (yeuto.checked){
+            bt1.style.visibility='visible'; bt1.innerHTML="Đỉnh";
+            bt2.style.visibility='visible'; bt2.innerHTML="Cạnh bên";
+            bt3.style.visibility='visible'; bt3.innerHTML="Đáy nhỏ";
+            bt4.style.visibility='visible'; bt4.innerHTML="Đáy lớn";
+            bt5.style.visibility='visible'; bt5.innerHTML="Đường chéo";
+            bt6.style.visibility='visible'; bt6.innerHTML="Góc kề đáy nhỏ";
+            bt7.style.visibility='visible'; bt7.innerHTML="Góc kề đáy lớn";
+            imageINFOR.src = "image/yeutocoban/ytoHthang.png";
+        }
+        else {
+            imageINFOR.src = "image/yeutocoban/tThang.png";
+        }
+    });
+    
+    yeuto.addEventListener('click',(e)=>{
+        if (ck==1)
+        {
+            hiddenAll();
+            im1.style.borderStyle = 'solid';  
+            nameINFOR.innerHTML = "Tam giác đều";
+            
+            bt1.style.visibility='visible'; bt1.innerHTML="Đỉnh";
+            bt2.style.visibility='visible'; bt2.innerHTML="Cạnh";
+            bt3.style.visibility='visible'; bt3.innerHTML="Góc";
+            imageINFOR.src = "image/yeutocoban/ytoTgiac.png";
+        }
+        if (ck==2) 
+        {
+            hiddenAll();
+            im2.style.borderStyle = 'solid';  
+            nameINFOR.innerHTML = "Hình vuông";
+            bt1.style.visibility='visible'; bt1.innerHTML="Đỉnh";
+            bt2.style.visibility='visible'; bt2.innerHTML="Cạnh";
+            bt3.style.visibility='visible'; bt3.innerHTML="Góc";
+            bt4.style.visibility='visible'; bt4.innerHTML="Đường chéo";
+            imageINFOR.src = "image/yeutocoban/ytoVuong.png";
+        }
+        if (ck==3)
+        {
+            hiddenAll();
+            im3.style.borderStyle = 'solid';  
+            bt1.style.visibility='visible'; bt1.innerHTML="Đỉnh";
+            bt2.style.visibility='visible'; bt2.innerHTML="Cạnh";
+            bt3.style.visibility='visible'; bt3.innerHTML="Góc";
+            bt4.style.visibility='visible'; bt4.innerHTML="Đường chéo";
+            nameINFOR.innerHTML = "Lục giác đều";
+            imageINFOR.src = "image/yeutocoban/ytoLucGiac.png";
+        }
+        if (ck==4)
+        {
+            hiddenAll();
+            im4.style.borderStyle = 'solid';  
+            nameINFOR.innerHTML = "Hình chữ nhật";
+            bt1.style.visibility='visible'; bt1.innerHTML="Đỉnh";
+            bt2.style.visibility='visible'; bt2.innerHTML="Cạnh";
+            bt3.style.visibility='visible'; bt3.innerHTML="Góc";
+            bt4.style.visibility='visible'; bt4.innerHTML="Đường chéo";
+            bt5.style.visibility='visible'; bt5.innerHTML="Hai cạnh đối";
+            imageINFOR.src = "image/yeutocoban/ytoHCN.png";
+        }
+        if (ck==5)
+        {
+            hiddenAll();
+            im5.style.borderStyle = 'solid';  
+            nameINFOR.innerHTML = "Hình thoi";
+            bt1.style.visibility='visible'; bt1.innerHTML="Đỉnh";
+            bt2.style.visibility='visible'; bt2.innerHTML="Hai cạnh kề";
+            bt3.style.visibility='visible'; bt3.innerHTML="Hai cạnh đối";
+            bt4.style.visibility='visible'; bt4.innerHTML="Góc";
+            bt5.style.visibility='visible'; bt5.innerHTML="Đường chéo";
+            bt6.style.visibility='visible'; bt6.innerHTML="Hai góc đối";
+            imageINFOR.src = "image/yeutocoban/ytoHThoi.png";
+        }
+        if (ck==6)
+        {
+            hiddenAll();
+            im6.style.borderStyle = 'solid';  
+            nameINFOR.innerHTML = "Hình bình hành";
+            bt1.style.visibility='visible'; bt1.innerHTML="Đỉnh";
+            bt2.style.visibility='visible'; bt2.innerHTML="Hai cạnh kề";
+            bt3.style.visibility='visible'; bt3.innerHTML="Hai cạnh đối";
+            bt4.style.visibility='visible'; bt4.innerHTML="Góc";
+            bt5.style.visibility='visible'; bt5.innerHTML="Đường chéo";
+            bt6.style.visibility='visible'; bt6.innerHTML="Hai góc đối";
+            imageINFOR.src = "image/yeutocoban/ytoHBH.png";
+        }
+        if (ck==7)
+        {
+            hiddenAll();
+            im7.style.borderStyle = 'solid';  
+            nameINFOR.innerHTML = "Hình thang cân";
+            bt1.style.visibility='visible'; bt1.innerHTML="Đỉnh";
+            bt2.style.visibility='visible'; bt2.innerHTML="Cạnh bên";
+            bt3.style.visibility='visible'; bt3.innerHTML="Đáy nhỏ";
+            bt4.style.visibility='visible'; bt4.innerHTML="Đáy lớn";
+            bt5.style.visibility='visible'; bt5.innerHTML="Đường chéo";
+            bt6.style.visibility='visible'; bt6.innerHTML="Góc kề đáy nhỏ";
+            bt7.style.visibility='visible'; bt7.innerHTML="Góc kề đáy lớn";
+            imageINFOR.src = "image/yeutocoban/ytoHthang.png";
+        }
+    })
+    chuvi.addEventListener('click',(e)=>{
+        if (ck==1 || ck==3)
+        {
+            chuvi.checked=false; yeuto.checked=true;
+        }
+        if (ck==2) 
+        {
+            hiddenAll();
+            im2.style.borderStyle = 'solid';  
+            nameINFOR.innerHTML = "Hình vuông";
+            imageINFOR.src = "image/yeutocoban/tVuong.png";
+        }
+        if (ck==4)
+        {
+            hiddenAll();
+            im4.style.borderStyle = 'solid';  
+            nameINFOR.innerHTML = "Hình chữ nhật";
+            imageINFOR.src = "image/yeutocoban/tHCN.png";
+        }
+        if (ck==5)
+        {
+            hiddenAll();
+            im5.style.borderStyle = 'solid';  
+            nameINFOR.innerHTML = "Hình thoi";
+            imageINFOR.src = "image/yeutocoban/tThoi.png";
+        }
+        if (ck==6)
+        {
+            hiddenAll();
+            im6.style.borderStyle = 'solid';  
+            nameINFOR.innerHTML = "Hình bình hành";
+            imageINFOR.src = "image/yeutocoban/tHBH.png";
+        }
+        if (ck==7)
+        {
+            hiddenAll();
+            im7.style.borderStyle = 'solid';  
+            nameINFOR.innerHTML = "Hình thang cân";
+            imageINFOR.src = "image/yeutocoban/tThang.png";
+        }
+    })
+
+</script>
+</html>

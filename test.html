@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+  <body>
+
+    <label style="color:blue; position: relative;" id="ttt" > 00 </label>
+    <h1 style="color:red; border:orange; border-width:3px; border-style:solid;" id="names"> Nguyễn Văn A </h1>
+  </body>
+<script>
+  let isDrawing = false;
+  let x = 0;
+  let y = 0;
+  let mv = document.getElementById('myPics');
+  let name = document.getElementById('names');
+  let circle = document.getElementById('ttt');
+  
+  //name.innerHTML = ;
+
+  
+  circle.addEventListener('mousedown',e=>{
+    x=e.offsetX;
+    y=e.offsetY;
+    isDrawing=true;
+  });
+  circle.addEventListener('mousemove',e=>{
+    if (isDrawing==true){
+      circle.style.position=();
+      circle.style.left = e.offsetX+"px";
+      circle.style.top = e.offsetY+"px";
+      name.innerHTML = e.offsetX;
+    }
+  });
+  circle.addEventListener('mouseup',e=>{
+    if (isDrawing==true) isDrawing=false;
+  });
+</script>
+</html>
