@@ -90,7 +90,7 @@
             <td rowspan="0" style="width: 400px;">
                 <label style="font-size: 30px;"><input type="radio" id="yeuto" class="option-input radio" name="radio" checked /><b> Yếu tố cơ bản </b></label>
                 <br><br><br>
-                <label style="font-size: 30px;"><input type="radio" id="chuvi" class="option-input radio" name="radio" /><b> Chu vi và diện tích </b></label>
+                <label id="cv" style="font-size: 30px;"><input type="radio" id="chuvi" class="option-input radio" name="radio" /><b> Chu vi và diện tích </b></label>
             </td>
             <td rowspan="0" style="width: 620px;">
                 <h1 id="nameINFOR" style="font-size: 40px; color: red; text-align: center;"></h1>
@@ -398,6 +398,7 @@
     // })
     function hiddenAll()
     {
+        document.getElementById('cv').style.visibility='visible';
         im1.style.borderStyle = 'none';  
         im2.style.borderStyle = 'none';  
         im3.style.borderStyle = 'none';  
@@ -430,19 +431,24 @@
         gockedaylon.style.visibility='hidden';
     }
     im1.addEventListener('click',(e)=>{
-        chuvi.checked=false; yeuto.checked=true;
+        //chuvi.checked=false; yeuto.checked=true;
         hiddenAll();
         im1.style.borderStyle = 'solid';  
         nameINFOR.innerHTML = "Tam giác đều";
-        
-        bt1.style.visibility='visible'; bt1.innerHTML="Đỉnh";
-        bt2.style.visibility='visible'; bt2.innerHTML="Cạnh";
-        bt3.style.visibility='visible'; bt3.innerHTML="Góc";
-        imageINFOR.src = "image/yeutocoban/ytoTgiac.png";
         ck=1;
+        if (yeuto.checked){
+            bt1.style.visibility='visible'; bt1.innerHTML="Đỉnh";
+            bt2.style.visibility='visible'; bt2.innerHTML="Cạnh";
+            bt3.style.visibility='visible'; bt3.innerHTML="Góc";
+            imageINFOR.src = "image/yeutocoban/ytoTgiac.png";
+        }
+        else{
+            imageINFOR.src = "image/yeutocoban/tTamGiac.png";
+        }
     });
     im2.addEventListener('click',(e)=>{
         hiddenAll();
+        
         im2.style.borderStyle = 'solid';  
         nameINFOR.innerHTML = "Hình vuông";
         ck=2;
@@ -460,6 +466,7 @@
     im3.addEventListener('click',(e)=>{
         chuvi.checked=false; yeuto.checked=true;
         hiddenAll();
+        document.getElementById('cv').style.visibility='hidden';
         im3.style.borderStyle = 'solid';  
         bt1.style.visibility='visible'; bt1.innerHTML="Đỉnh";
         bt2.style.visibility='visible'; bt2.innerHTML="Cạnh";
@@ -630,9 +637,18 @@
         }
     })
     chuvi.addEventListener('click',(e)=>{
-        if (ck==1 || ck==3)
+        if (ck==3)
         {
             chuvi.checked=false; yeuto.checked=true;
+            chuvi.visibility = 'hidden';
+        }
+        else chuvi.visibility = 'visiable';
+        if (ck==1)
+        {
+            hiddenAll();
+            im1.style.borderStyle = 'solid';  
+            nameINFOR.innerHTML = "Tam giác đều";
+            imageINFOR.src = "image/yeutocoban/tTamGiac.png";
         }
         if (ck==2) 
         {
