@@ -95,15 +95,15 @@
         <tr>
             <td style="width: 60px;"></td>
             <td >
-                <label style="font-size: 22px;"><input type="radio" id="yeuto" class="option-input radio" name="radio" checked /><b> Tam giác đều </b></label><br>
-                <label style="font-size: 22px;"><input type="radio" id="chuvi" class="option-input radio" name="radio" /><b> Lục giác đều </b></label><br>
-                <label style="font-size: 22px;"><input type="radio" id="chuvi" class="option-input radio" name="radio" /><b> Hình chữ nhật </b></label><br>
+                <label style="font-size: 22px;"><input type="radio" id="h1" class="option-input radio" name="radio" checked /><b> Tam giác đều </b></label><br>
+                <label style="font-size: 22px;"><input type="radio" id="h2" class="option-input radio" name="radio" /><b> Lục giác đều </b></label><br>
+                <label style="font-size: 22px;"><input type="radio" id="h3" class="option-input radio" name="radio" /><b> Hình chữ nhật </b></label><br>
             </td>
             <td style="width: 30px;"></td>
             <td>
-                <label style="font-size: 22px;"><input type="radio" id="yeuto" class="option-input radio" name="radio" /><b> Hình vuông </b></label><br>
-                <label style="font-size: 22px;"><input type="radio" id="chuvi" class="option-input radio" name="radio" /><b> Hình thoi </b></label><br>
-                <label style="font-size: 22px;"><input type="radio" id="chuvi" class="option-input radio" name="radio" /><b> Hình bình hành </b></label><br>
+                <label style="font-size: 22px;"><input type="radio" id="h4" class="option-input radio" name="radio" /><b> Hình vuông </b></label><br>
+                <label style="font-size: 22px;"><input type="radio" id="h5" class="option-input radio" name="radio" /><b> Hình thoi </b></label><br>
+                <label style="font-size: 22px;"><input type="radio" id="h6" class="option-input radio" name="radio" /><b> Hình bình hành </b></label><br>
             </td>
             <td style="width: 60px;"></td>
         </tr>
@@ -144,6 +144,25 @@
     function moveIMG(x){
         ck[x] = !ck[x];
     }
+
+    document.getElementById('h1').addEventListener('click',(e)=>{
+        window.location.reload();
+    })
+    document.getElementById('h2').addEventListener('click',(e)=>{
+        window.location.reload();
+    })
+    document.getElementById('h3').addEventListener('click',(e)=>{
+        window.location.reload();
+    })
+    document.getElementById('h4').addEventListener('click',(e)=>{
+        window.location.reload();
+    })
+    document.getElementById('h5').addEventListener('click',(e)=>{
+        window.location.reload();
+    })
+    document.getElementById('h6').addEventListener('click',(e)=>{
+        window.location.reload();
+    })
 
     function resetZIndex(){
         im1.style.zIndex=1;
